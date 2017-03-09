@@ -45,13 +45,15 @@ public class MatchTheNumbers {
         input.nextLine();
         Font font = new Font(Font.MONOSPACED, Font.BOLD, labelSize);
         FontMetrics fontMetrics = new JLabel().getFontMetrics(font);
-        String[] horOptions = makeOptions(dimensions[0] / fontMetrics.charWidth((char) 48));
+        String[] horOptions = makeOptions(dimensions[0] / fontMetrics.charWidth('0'));
         int charactersHor = Integer.parseInt((String) JOptionPane.showInputDialog(null, "Choose the number of the horizontal characters.",
                 title, JOptionPane.QUESTION_MESSAGE, null, horOptions, horOptions[horOptions.length - 1]));
         String[] verOptions = makeOptions(dimensions[1] / fontMetrics.getHeight());
         int charactersVer = Integer.parseInt((String) JOptionPane.showInputDialog(null, "Choose the number of the vertical characters.",
                 title, JOptionPane.QUESTION_MESSAGE, null, verOptions, verOptions[verOptions.length - 1]));
         boolean gameType = input.nextInt() == 0;
+        input.nextLine();
+        int minDigit = input.nextInt();
         input.nextLine();
         int maxDigit = input.nextInt();
         input.nextLine();
@@ -95,7 +97,7 @@ public class MatchTheNumbers {
         if (!gameType) {
             for (int i = 0; i < charactersVer; i++) {
                 for (int j = 0; j < charactersHor; j++) {
-                    characters[i][j] = (char) (random.nextInt(maxDigit + 1) + 48);
+                    characters[i][j] = (char) (random.nextInt(maxDigit - minDigit + 1) + minDigit + '0');
                     labels[i][j].setText("" + characters[i][j]);
                     labels[i][j].setForeground(Color.BLACK);
                 }
@@ -124,8 +126,8 @@ public class MatchTheNumbers {
                     }
                     if (change) {
                         if (moveType) {
-                            if (characters[oldY][oldX] == maxDigit + 48) {
-                                characters[oldY][oldX] = 48;
+                            if (characters[oldY][oldX] == maxDigit + '0') {
+                                characters[oldY][oldX] = (char) ('0' + minDigit);
                             }
                             else {
                                 characters[oldY][oldX]++;
@@ -133,8 +135,8 @@ public class MatchTheNumbers {
                             labels[oldY][oldX].setText("" + characters[oldY][oldX]);
                         }
                         else {
-                            if (characters[newY][newX] == maxDigit + 48) {
-                                characters[newY][newX] = 48;
+                            if (characters[newY][newX] == maxDigit + '0') {
+                                characters[newY][newX] = (char) ('0' + minDigit);
                             }
                             else {
                                 characters[newY][newX]++;
@@ -145,7 +147,7 @@ public class MatchTheNumbers {
                         labels[newY][newX].setForeground(Color.RED);
                         for (int i = 0; i < charactersVer; i++) {
                             for (int j = 0; j < charactersHor; j++) {
-                                if (characters[i][j] != maxDigit + 48) {
+                                if (characters[i][j] != maxDigit + '0') {
                                     return;
                                 }
                             }

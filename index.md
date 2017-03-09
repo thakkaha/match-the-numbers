@@ -31,7 +31,7 @@ This file is read before every round so you can play each round with different o
 * Select the total number of horizontal and vertical characters.
 * Choose the game type.
 * For the normal game mode
-  * Set the maximum digit.
+  * Set the minimum and maximum digit.
   * Select the movement type.
 * For the animation mode
   * Specify how many frames appear in one second.
