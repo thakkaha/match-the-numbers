@@ -35,7 +35,7 @@ public class MatchTheNumbers {
         int[] dimensions = {(int) dimension.getWidth(), (int) dimension.getHeight()};
         Scanner input = null;
         try {
-            input = new Scanner(new File("MatchTheNumbersConfiguration.ini"));
+            input = new Scanner(new File("MatchTheNumbersConfiguration.ini"), "UTF-8");
         }
         catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex, title, JOptionPane.ERROR_MESSAGE);
