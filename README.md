@@ -1,55 +1,29 @@
 # Match the Numbers
 
-Try to make all the numbers equal by traversing them.
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/berkerol/match-the-numbers/issues)
+[![semistandard](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
+[![license](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://github.com/berkerol/match-the-numbers/blob/master/LICENSE)
 
-Also works as a beautiful simulation in animation mode.
+Try to make all numbers equal by visiting them. Move using arrow keys. Written in [ES6](https://www.ecma-international.org/ecma-262/6.0/).
 
-![game](screenshots/game.gif) ![animation](screenshots/animation.gif)
+[![button](play.png)](https://berkerol.github.io/match-the-numbers/mtn.html)
 
 ## Gameplay & Features
 
-- There are two modes.
-- In normal game mode
+- Select which digit to change
+  - Digit you move from
+  - Digit you go to
 
-  - Change the digits by visiting them using the arrow keys in the keyboard.
-  - Either the digit you move from or the digit you go to is changed (movement type).
-  - If you visit a digit that is equal to the maximum digit, it is reset to 0.
-  - Game ends if you make all digits equal (to the max digit).
-  - Controlling the movements in the edges.
+- Select how to change the digit
+  - Increase the digit
+  - Decrease the digit
 
-- In animation mode
-
-  - Watch the changing characters.
-  - Pause the animation by pressing _P_ and view a text containing the characters.
-  - Pausing automatically when window loses focus.
-
-There are some customization options for adding variety. You can set these options using _MatchTheNumbersConfiguration.ini_ file after building (Hard-coding options into code is not necessary). This file is read before every round so you can play each round with different options.
-
-## Customizations
-
-- Specify the size of the label.
-- Select the total number of horizontal and vertical characters.
-- Choose the game type.
-- For the normal game mode
-
-  - Set the minimum and maximum digit.
-  - Select the movement type.
-
-- For the animation mode
-
-  - Specify how many frames appear in one second.
-  - Select which type of character(s) appear.
-  - Choose which type of letter(s) appear.
-  - Choose the color type of labels (b&w or random colors).
-
-## Installation
-
-Built by NetBeans 8.2 (whole repository is the NetBeans project).
+- If you visit a digit that is equal to the maximum digit, it is reset to minimum digit in increasing mode (or vice versa).
 
 ## Contribution
 
-Feel free to contribute.
+Feel free to [contribute](https://github.com/berkerol/match-the-numbers/issues) according to the [semistandard rules](https://github.com/Flet/semistandard).
 
 ## Distribution
 
-You can distribute this software (jar file in the dist folder) freely under GNU GPL v3.0.
+You can distribute this software freely under [GNU GPL v3.0](https://github.com/berkerol/match-the-numbers/blob/master/LICENSE).

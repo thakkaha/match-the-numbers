@@ -1,0 +1,14 @@
+body {
+  background: #eee;
+  overflow: hidden;
+}
+
+canvas {
+  margin-top: 40px;
+}
+
+.buttons {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
