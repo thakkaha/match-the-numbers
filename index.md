@@ -2,7 +2,7 @@
 
 Try to make all numbers equal by visiting them. Move using arrow keys. Written in [ES6](https://www.ecma-international.org/ecma-262/6.0/).
 
-[![button](play.png)](https://berkerol.github.io/match-the-numbers/mtn.html)
+[![button](play.png)](mtn.html)
 
 ## Gameplay & Features
 
