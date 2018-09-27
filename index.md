@@ -1,6 +1,6 @@
 # Match the Numbers
 
-Try to make all numbers equal by visiting them. Move using arrow keys. Written in [ES6](https://www.ecma-international.org/ecma-262/6.0/).
+Try to make all numbers equal by visiting them. Move using arrow keys.
 
 [![button](play.png)](mtn.html)
 
