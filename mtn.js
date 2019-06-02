@@ -1,5 +1,5 @@
-let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
 let rows = 5;
 let cols = 5;
@@ -9,7 +9,7 @@ let moveType = true;
 let increase = true;
 let index = 0;
 
-let label = {
+const label = {
   height: 25,
   font: '25px Monospace',
   paddingX: 10,
@@ -44,7 +44,7 @@ document.getElementById('increase').addEventListener('change', function () {
   }
 });
 ctx.font = label.font;
-let metrics = ctx.measureText('0');
+const metrics = ctx.measureText('0');
 resizeHandler();
 restart();
 draw();
@@ -65,8 +65,8 @@ function save () {
 
 function restart () {
   index = 0;
-  let marginX = canvas.width - cols * (metrics.width + label.paddingX);
-  let marginY = canvas.height - rows * (label.height + label.paddingY);
+  const marginX = canvas.width - cols * (metrics.width + label.paddingX);
+  const marginY = canvas.height - rows * (label.height + label.paddingY);
   labels = [];
   for (let i = 1; i <= rows; i++) {
     for (let j = 0; j < cols; j++) {
@@ -84,7 +84,7 @@ function restart () {
 function draw () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.font = label.font;
-  for (let l of labels) {
+  for (const l of labels) {
     ctx.fillStyle = l.color;
     ctx.fillText(String.fromCharCode(l.code), l.x, l.y);
   }
@@ -92,7 +92,7 @@ function draw () {
 }
 
 function keyDownHandler (e) {
-  let old = index;
+  const old = index;
   let change = false;
   if (e.keyCode === 38 && index >= cols) {
     index -= cols;
@@ -142,7 +142,7 @@ function keyDownHandler (e) {
     }
     labels[old].color = label.color;
     labels[index].color = label.selectedColor;
-    for (let l of labels) {
+    for (const l of labels) {
       if (increase) {
         if (l.code !== maxDigit + 48) {
           return;
