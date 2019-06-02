@@ -45,34 +45,30 @@ document.getElementById('increase').addEventListener('change', function () {
 });
 ctx.font = label.font;
 const metrics = ctx.measureText('0');
+const charWidth = metrics.width + label.paddingX;
+const charHeight = label.height + label.paddingY;
 resizeHandler();
 restart();
 draw();
 window.addEventListener('resize', resizeHandler);
 
 function save () {
-  rows = +document.getElementById('rows').value;
-  if (rows > Math.floor(canvas.height / (label.height + label.paddingY))) {
-    rows = Math.floor(canvas.height / (label.height + label.paddingY));
-  }
-  cols = +document.getElementById('cols').value;
-  if (cols > Math.floor(canvas.width / (metrics.width + label.paddingX))) {
-    cols = Math.floor(canvas.width / (metrics.width + label.paddingX));
-  }
+  rows = Math.min(+document.getElementById('rows').value, Math.floor(canvas.height / charHeight));
+  cols = Math.min(+document.getElementById('cols').value, Math.floor(canvas.width / charWidth));
   minDigit = +document.getElementById('min').value;
   maxDigit = +document.getElementById('max').value;
 }
 
 function restart () {
   index = 0;
-  const marginX = canvas.width - cols * (metrics.width + label.paddingX);
-  const marginY = canvas.height - rows * (label.height + label.paddingY);
+  const marginX = (canvas.width - cols * charWidth) / 2;
+  const marginY = (canvas.height - rows * charHeight) / 3;
   labels = [];
   for (let i = 1; i <= rows; i++) {
     for (let j = 0; j < cols; j++) {
       labels.push({
-        x: j * (metrics.width + label.paddingX) + marginX / 2,
-        y: i * (label.height + label.paddingY) + marginY / 3,
+        x: j * charWidth + marginX,
+        y: i * charHeight + marginY,
         code: Math.floor(Math.random() * (maxDigit - minDigit) + 48 + minDigit),
         color: label.color
       });
