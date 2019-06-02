@@ -52,12 +52,12 @@ restart();
 draw();
 window.addEventListener('resize', resizeHandler);
 
-function save () {
+window.save = function () {
   rows = Math.min(+document.getElementById('rows').value, Math.floor(canvas.height / charHeight));
   cols = Math.min(+document.getElementById('cols').value, Math.floor(canvas.width / charWidth));
   minDigit = +document.getElementById('min').value;
   maxDigit = +document.getElementById('max').value;
-}
+};
 
 function restart () {
   index = 0;
