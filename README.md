@@ -5,7 +5,7 @@
 [![ECMAScript](https://img.shields.io/badge/ECMAScript-latest-brightgreen.svg)](https://www.ecma-international.org/ecma-262)
 [![license](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg)](https://github.com/berkerol/match-the-numbers/blob/master/LICENSE)
 
-Try to make all numbers equal by visiting them. Move using arrow keys.
+Try to make all numbers equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
 
 [![button](play.png)](https://berkerol.github.io/match-the-numbers/mtn.html)
 

@@ -1,6 +1,6 @@
 # Match the Numbers
 
-Try to make all numbers equal by visiting them. Move using arrow keys.
+Try to make all numbers equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
 
 [![button](play.png)](mtn.html)
 

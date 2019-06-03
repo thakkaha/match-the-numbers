@@ -1,12 +1,18 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let rows = 5;
-let cols = 5;
-let minDigit = 0;
-let maxDigit = 2;
-let moveType = true;
-let increase = true;
+const defaultRows = 5;
+const defaultCols = 5;
+const defaultMinDigit = 0;
+const defaultMaxDigit = 2;
+const defaultMoveType = true;
+const defaultIncrease = true;
+let rows = defaultRows;
+let cols = defaultCols;
+let minDigit = defaultMinDigit;
+let maxDigit = defaultMaxDigit;
+let moveType = defaultMoveType;
+let increase = defaultIncrease;
 let index = 0;
 
 const label = {
@@ -20,12 +26,14 @@ const label = {
 
 let labels = [];
 
-document.addEventListener('keydown', keyDownHandler);
-document.getElementById('rows').value = rows;
-document.getElementById('cols').value = cols;
-document.getElementById('min').value = minDigit;
-document.getElementById('max').value = maxDigit;
-document.getElementById('move').checked = moveType;
+ctx.font = label.font;
+const metrics = ctx.measureText('0');
+const charWidth = metrics.width + label.paddingX;
+const charHeight = label.height + label.paddingY;
+resetInputs();
+resizeHandler();
+restart();
+draw();
 document.getElementById('move').addEventListener('change', function () {
   moveType = this.checked;
   if (moveType) {
@@ -34,7 +42,6 @@ document.getElementById('move').addEventListener('change', function () {
     document.getElementById('moveText').innerHTML = 'source';
   }
 });
-document.getElementById('increase').checked = increase;
 document.getElementById('increase').addEventListener('change', function () {
   increase = this.checked;
   if (increase) {
@@ -43,14 +50,18 @@ document.getElementById('increase').addEventListener('change', function () {
     document.getElementById('increaseText').innerHTML = 'Decrease';
   }
 });
-ctx.font = label.font;
-const metrics = ctx.measureText('0');
-const charWidth = metrics.width + label.paddingX;
-const charHeight = label.height + label.paddingY;
-resizeHandler();
-restart();
-draw();
+document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
 window.addEventListener('resize', resizeHandler);
+
+function resetInputs () {
+  document.getElementById('rows').value = rows;
+  document.getElementById('cols').value = cols;
+  document.getElementById('min').value = minDigit;
+  document.getElementById('max').value = maxDigit;
+  document.getElementById('move').checked = moveType;
+  document.getElementById('increase').checked = increase;
+}
 
 window.save = function () {
   rows = Math.min(+document.getElementById('rows').value, Math.floor(canvas.height / charHeight));
@@ -151,6 +162,18 @@ function keyDownHandler (e) {
     }
     window.alert('CONGRATULATIONS, YOU FINISHED!');
     restart();
+  }
+}
+
+function keyUpHandler (e) {
+  if (e.keyCode === 82) {
+    rows = defaultRows;
+    cols = defaultCols;
+    minDigit = defaultMinDigit;
+    maxDigit = defaultMaxDigit;
+    moveType = defaultMoveType;
+    increase = defaultIncrease;
+    resetInputs();
   }
 }
 
