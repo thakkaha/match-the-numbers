@@ -7,12 +7,12 @@ canvas {
   margin-top: 40px;
 }
 
-.buttons {
+input[type="number"] {
+  width: 5em;
+}
+
+.btn-group-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-input[type="number"] {
-  width: 5em;
 }
