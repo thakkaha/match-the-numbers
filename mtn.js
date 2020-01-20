@@ -1,3 +1,4 @@
+/* global createButtonGroup createModalButton createModal keyUpHandler */
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -7,12 +8,12 @@ const defaultMinDigit = 0;
 const defaultMaxDigit = 2;
 const defaultMoveType = true;
 const defaultIncrease = true;
-let rows = defaultRows;
-let cols = defaultCols;
-let minDigit = defaultMinDigit;
-let maxDigit = defaultMaxDigit;
-let moveType = defaultMoveType;
-let increase = defaultIncrease;
+let rows;
+let cols;
+let minDigit;
+let maxDigit;
+let moveType;
+let increase;
 let index = 0;
 
 const label = {
@@ -26,6 +27,11 @@ const label = {
 
 let labels = [];
 
+const modalElements = [[['Rows', 'rows', 2, 99, 'number'], ['Min Digit', 'min', 0, 8, 'number'], ['<u>C</u>hange <span id="moveText">target</span> digit', 'move', 'c', 'check']], [['Columns', 'cols', 2, 99, 'number'], ['Max Digit', 'max', 1, 9, 'number'], ['<span id="increaseText">Increase</span> <u>d</u>igit', 'increase', 'd', 'check']]];
+const buttonElements = [['info', 'restart()', 'r', 'sync', '<u>R</u>estart'], ['info', '', 's', 'cog', '<u>S</u>ettings']];
+const buttonGroup = createButtonGroup('btn-group btn-group-lg btn-group-center', buttonElements);
+document.body.insertBefore(createModalButton(buttonGroup, 1), canvas);
+createModal(modalElements);
 ctx.font = label.font;
 const metrics = ctx.measureText('0');
 const charWidth = metrics.width + label.paddingX;
@@ -50,11 +56,17 @@ document.getElementById('increase').addEventListener('change', function () {
     document.getElementById('increaseText').innerHTML = 'Decrease';
   }
 });
-document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keydown', keyDownHandler_);
 document.addEventListener('keyup', keyUpHandler);
 window.addEventListener('resize', resizeHandler);
 
 function resetInputs () {
+  rows = defaultRows;
+  cols = defaultCols;
+  minDigit = defaultMinDigit;
+  maxDigit = defaultMaxDigit;
+  moveType = defaultMoveType;
+  increase = defaultIncrease;
   document.getElementById('rows').value = rows;
   document.getElementById('cols').value = cols;
   document.getElementById('min').value = minDigit;
@@ -98,7 +110,7 @@ function draw () {
   window.requestAnimationFrame(draw);
 }
 
-function keyDownHandler (e) {
+function keyDownHandler_ (e) {
   const old = index;
   let change = false;
   if (e.keyCode === 38 && index >= cols) {
@@ -162,18 +174,6 @@ function keyDownHandler (e) {
     }
     window.alert('CONGRATULATIONS, YOU FINISHED!');
     restart();
-  }
-}
-
-function keyUpHandler (e) {
-  if (e.keyCode === 82) {
-    rows = defaultRows;
-    cols = defaultCols;
-    minDigit = defaultMinDigit;
-    maxDigit = defaultMaxDigit;
-    moveType = defaultMoveType;
-    increase = defaultIncrease;
-    resetInputs();
   }
 }
 
