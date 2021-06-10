@@ -105,7 +105,7 @@ function draw () {
   ctx.font = label.font;
   for (const l of labels) {
     ctx.fillStyle = l.color;
-    ctx.fillText(String.fromCharCode(l.code), l.x, l.y);
+    ctx.fillText(Sanscript.t(String.fromCharCode(l.code), 'devanagari','itrans'), l.x, l.y);
   }
   window.requestAnimationFrame(draw);
 }
@@ -172,7 +172,7 @@ function keyDownHandler_ (e) {
         }
       }
     }
-    window.alert('CONGRATULATIONS, YOU FINISHED!');
+    window.alert('उत्तमम् - YOU FINISHED! 😃');
     restart();
   }
 }
