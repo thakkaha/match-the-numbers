@@ -1,8 +1,7 @@
-# Match the Numbers
+# Match the सङ्ख्या (Numbers)
 
-Try to make all numbers equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
+Try to make all सङ्ख्या (numbers) equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
 
-[![button](play.png)](mtn.html)
 
 ## Gameplay & Features
 

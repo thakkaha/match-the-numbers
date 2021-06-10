@@ -1,16 +1,14 @@
 From https://github.com/berkerol/match-the-numbers
 
-# Match the Numbers
+# Match the सङ्ख्या (Numbers)
 
-[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=berkerol_match-the-numbers&metric=alert_status)](https://sonarcloud.io/dashboard?id=berkerol_match-the-numbers)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/berkerol/match-the-numbers/issues)
 [![semistandard](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
 [![ECMAScript](https://img.shields.io/badge/ECMAScript-latest-brightgreen.svg)](https://www.ecma-international.org/ecma-262)
 [![license](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg)](https://github.com/berkerol/match-the-numbers/blob/master/LICENSE)
 
-Try to make all numbers equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
+Try to make all सङ्ख्या (numbers) equal by visiting them. Move using arrow keys. Press _R_ to reset settings to defaults.
 
-[![button](play.png)](https://berkerol.github.io/match-the-numbers/mtn.html)
 
 ## Gameplay & Features
 

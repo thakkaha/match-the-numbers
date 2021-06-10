@@ -105,7 +105,7 @@ function draw () {
   ctx.font = label.font;
   for (const l of labels) {
     ctx.fillStyle = l.color;
-    ctx.fillText(Sanscript.t(String.fromCharCode(l.code), 'devanagari','itrans'), l.x, l.y);
+    ctx.fillText(Sanscript.t(String.fromCharCode(l.code), 'itrans','devanagari'), l.x, l.y);
   }
   window.requestAnimationFrame(draw);
 }
